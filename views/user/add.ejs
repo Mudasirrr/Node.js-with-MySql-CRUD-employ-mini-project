@@ -1,0 +1,59 @@
+<!--
+including header content which is common for all pages
+-->
+<%- include ../layouts/header.ejs %>	
+
+<% if (messages.error) { %>
+	<p style="color:pink"><%- messages.error %></p>
+<% } %>
+
+<% if (messages.success) { %>
+	<p style="color:green"><%- messages.success %></p>
+<% } %>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Record</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        .wrapper{
+            width: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-header">
+                        <h2>Create Record</h2>
+                    </div>
+                    <p>Please fill this form and submit to add employee record to the database.</p>
+                    <form action="/users/add" method="post">
+                        <div class="form-group ">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control" value="<%= name %>">
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input type="text" name="address" class="form-control" value="<%= address %>"" />
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="form-group ">
+                            <label>Salary</label>
+                            <input type="text" name="salary" class="form-control" value="<%= salary %>">
+                            <span class="help-block"></span>
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Add">
+                        <a href="index.php" class="btn btn-default">Cancel</a>
+                    </form>
+                </div>
+            </div>        
+        </div>
+    </div>
+</body>
+</html>
